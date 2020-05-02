@@ -17,11 +17,10 @@ echo -e "\n# 1/4 - Installing docker..."
 if ! hash docker 2>/dev/null; then
     curl -fsSL https://get.docker.com -o get-docker.sh
     sudo sh get-docker.sh
-    sudo groupadd docker
     sudo usermod -aG docker ${LOGNAME}
     sudo chmod 666 /var/run/docker.sock
     echo "Testing..."
-    docker info
+    docker --version
 else
     echo "Docker already installed"
 fi
@@ -48,8 +47,6 @@ curl -fsSL "https://github.com/GoogleCloudPlatform/docker-credential-gcr/release
 | sudo tee /usr/bin/docker-credential-gcr > /dev/null
 sudo chmod +x /usr/bin/docker-credential-gcr
 docker-credential-gcr configure-docker
-
-#gcloud auth configure-docker --quiet
 
 ## Create project folder
 echo -e "\n# 4/4 - Creating project folder..."
