@@ -1,0 +1,11 @@
+{
+  "name": "docker-node-deploy-gcp",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
